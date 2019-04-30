@@ -14,5 +14,27 @@ myNinjaApp.controller('NinjaController', ['$scope', function($scope){
 
   $scope.message = "Hey";
 
-  $scope.ninjas = ['yoshi', 'crystal', 'ryu', 'shawn'];
+  $scope.ninjas = [
+  {
+    name: "Yoshi",
+    belt: "green",
+    rate: 50
+  },
+  {
+    name: "crystal",
+    belt: "green",
+    rate: 30
+  },
+  {
+    name: "ryu",
+    belt: "orange",
+    rate: 100
+
+  },
+  {
+    name: "shawn",
+    belt: "black",
+    rate: 1000
+  }
+];
 }]);
