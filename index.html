@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" dir="ltr" ng-app="myNinjaApp">
   <head>
@@ -10,15 +10,19 @@
   </head>
   <body>
     <header ng-include="'header.html'"></header>
-    <div ng-controller="NinjaController">
-      <input type="text" ng-model="search" />
-      <ul>
-        <li ng-repeat="ninja in ninjas | orderBy:'-rate'| filter:search">
-          {{ninja.name}} - {{ninja.rate | currency: '£'}}
-
-        </li>
-      </ul>
-
+    <div class="content">
+      <div ng-controller="NinjaController">
+        <button ng-click="order = 'name'">Order by name</button>
+        <button ng-click="order = 'belt'">Order by belt</button>
+        <input type="text" ng-model="search" placeholder="Search a ninja"/>
+        <ul>
+          <li ng-repeat="ninja in ninjas | orderBy: order | filter: search" ng-show="ninja.available">
+            <h3>{{ninja.name}} - {{ninja.rate | currency: '£'}}</h3>
+            <div class="remove" ng-click="removeNinja(ninja)">x</div>
+            <span class="belt" style="background: {{ninja.belt}}">{{ninja.belt}} belt</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
