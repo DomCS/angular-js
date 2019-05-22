@@ -1,14 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" ng-app>
+
+<html lang="en" dir="ltr" ng-app="myNinjaApp">
   <head>
     <meta charset="utf-8">
     <title></title>
     <link href="content/css/styles.css" rel="stylesheet" type="text/css" />
-    <script src="app\lib\angular.min.txt" charset="utf-8"></script>
+    <script src="app\lib\angular.min.js"></script>
+    <script src="app\lib\angular-route.min.js"></script>
+    <script src="app\app.js"></script>
   </head>
   <body>
-    <input type="text" ng-model="favMeat" placeholder="enter your fav meat"/>
-    <p>Your favorite meat is: {{favMeat}}</p>  
-
+    <header ng-include="'header.html'"></header>
+    <main ng-view></main>
+    <!--<div class="content">
+      <div ng-controller="NinjaController">
+        <button ng-click="order = 'name'">Order by name</button>
+        <button ng-click="order = 'belt'">Order by belt</button>
+        <input type="text" ng-model="search" placeholder="Search a ninja"/>
+        <ul>
+          <li ng-repeat="ninja in ninjas | orderBy: order | filter: search" ng-show="ninja.available">
+            <img ng-src="{{ninja.thumb}}" style="margin: -12px 10px 0 0; float: left; width:50px; "
+            ng-show"ninja.thumb"/>
+            <h3>{{ninja.name}} - {{ninja.rate | currency: '£'}}</h3>
+            <div class="remove" ng-click="removeNinja(ninja)">x</div>
+            <span class="belt" style="background: {{ninja.belt}}">{{ninja.belt}} belt</span>
+          </li>
+        </ul>
+        <form ng-submit="addNinja()">
+          <input type="text" placeholder="name" ng-model="newninja.name" />
+          <input type="text" placeholder="belt" ng-model="newninja.belt" />
+          <input type="text" placeholder="rate" ng-model="newninja.rate" />
+          <input type="submit" value="add new ninja" />
+        </form>
+      </div>
+    </div> -->
   </body>
 </html>
